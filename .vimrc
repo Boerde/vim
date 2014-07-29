@@ -7,6 +7,7 @@ syntax on
 filetype plugin indent on
 set background=dark
 colorscheme solarized
+set spell spelllang=en_us
 
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
 " Disable AutoComplPop.
