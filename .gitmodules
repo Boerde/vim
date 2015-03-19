@@ -7,3 +7,6 @@
 [submodule "bundle/neocomplete"]
 	path = bundle/neocomplete
 	url = https://github.com/Shougo/neocomplete.vim
+[submodule "bundle/syntastic2"]
+	path = bundle/syntastic2
+	url = https://github.com/scrooloose/syntastic
