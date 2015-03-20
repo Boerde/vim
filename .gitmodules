@@ -10,3 +10,9 @@
 [submodule "bundle/syntastic2"]
 	path = bundle/syntastic2
 	url = https://github.com/scrooloose/syntastic
+[submodule "bundle/ctrlp"]
+	path = bundle/ctrlp
+	url = https://github.com/kien/ctrlp.vim
+[submodule "bundle/taglist"]
+	path = bundle/taglist
+	url = https://github.com/vim-scripts/taglist.vim

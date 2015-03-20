@@ -6,6 +6,8 @@ set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
+set list
+set listchars=tab:>~,nbsp:_,trail:.
 
 " Syntasthic Default Settings 
 " set statusline+=%#warningmsg#
@@ -19,7 +21,8 @@ let g:syntastic_loc_list_height = 5
 " let g:syntastic_check_on_wq = 0
 let g:syntastic_c_no_include_search = 1
 let g:syntastic_c_checkers=['splint']
-let g:syntastic_c_splint_args = "+posixlib -I/home/lsoest/cas/confd_v4_3_8_mips_n64/include -I/home/lsoest/cas/libconfd/include/"
+let g:syntastic_c_splint_args = "+posixlib -I/home/lsoest/skywanng -I/home/lsoest/skywanng/lib/include -I/home/lsoest/skywanng/lib/skywanStubs/base -I/home/lsoest/skywanng/lib/skywanStubs/operSys -I/home/lsoest/skywanng/lib/skywanStubs/cas -I/home/lsoest/skywanng/lib/skywanStubs/dha -I/home/lsoest/skywanng/lib/tdma -I/home/lsoest/skywanng/lib/iniparser -I/home/lsoest/skywanng/cas/libconfd/include -I/home/lsoest/skywanng/cas/include_generated -I/home/lsoest/skywanng/ip/include -I/home/lsoest/skywanng/sys/include -I/home/lsoest/skywanng/ip/qos/appl -I/home/lsoest/skywanng/ip/qos/interface -I/home/lsoest/skywanng/cas/metacli/nbase-stub/ -I/data/mvista/ADK/cavium-octeon2-64-adk/mips64-mv-linux/usr/include/"
+
 
 execute pathogen#infect()
 syntax on
@@ -31,6 +34,10 @@ set spell spelllang=en_us
 set hlsearch
 
 let g:ctags_statusline=1 
+
+"""""" TAGLIST
+let Tlist_Auto_Open = 1
+let Tlist_Exit_OnlyWindow = 1
 
 """""" NeoComplete
 "Note: This option must set it in .vimrc(_vimrc).  NOT IN .gvimrc(_gvimrc)!
@@ -126,6 +133,7 @@ let g:neocomplete#force_omni_input_patterns.objcpp =
 let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_default_keymappings = 0
+" use clang library instead of binary (faster)
 let g:clang_use_library = 1
 
 """""""""""CLANG_COMPLETE
