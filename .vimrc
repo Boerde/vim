@@ -43,6 +43,9 @@ set hlsearch
 
 let g:ctags_statusline=1 
 
+"""""" PCTRL
+let g:ctrlp_extensions = ['tag'] "enable search through tags
+
 """""" TAGLIST
 let Tlist_Auto_Open = 1
 let Tlist_Exit_OnlyWindow = 1
