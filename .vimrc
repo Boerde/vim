@@ -2,12 +2,20 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
+""""" Tabs
 set tabstop=4
 set shiftwidth=4
 set smarttab
 set expandtab
 set list
 set listchars=tab:>~,nbsp:_,trail:.
+
+""""" FOLDING
+set foldmethod=syntax
+"folding with space
+nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
+vnoremap <Space> zf
+set foldlevelstart=99
 
 " Syntasthic Default Settings 
 " set statusline+=%#warningmsg#
