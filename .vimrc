@@ -11,11 +11,11 @@ set list
 set listchars=tab:>~,nbsp:_,trail:.
 
 """"" FOLDING
-set foldmethod=syntax
+set foldmethod=indent
 "folding with space
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
-set foldlevelstart=99
+set foldlevelstart=99 "no folds at opem
 
 " Syntasthic Default Settings 
 " set statusline+=%#warningmsg#
