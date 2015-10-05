@@ -16,3 +16,6 @@
 [submodule "bundle/taglist"]
 	path = bundle/taglist
 	url = https://github.com/vim-scripts/taglist.vim
+[submodule "bundle/vim-addon-linux-coding-style"]
+	path = bundle/vim-addon-linux-coding-style
+	url = https://github.com/Boerde/vim-addon-linux-coding-style

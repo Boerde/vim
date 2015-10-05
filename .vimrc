@@ -2,6 +2,9 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
+""""" HOTKEYS
+inoremap jj <ESC>
+
 """"" Tabs
 set tabstop=4
 set shiftwidth=4
