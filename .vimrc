@@ -5,6 +5,21 @@ endif
 """"" HOTKEYS
 inoremap jj <ESC>
 
+""""" autocomplete braces
+inoremap {      {}<Left>
+inoremap {<CR>  {<CR>}<Esc>O
+inoremap {{     {
+inoremap {}     {}
+
+inoremap (      ()<Left>
+inoremap (<CR>  (<CR>)<Esc>O
+inoremap ((     (
+inoremap ()     ()
+
+inoremap [      []<Left>
+inoremap [<CR>  [<CR>]<Esc>O
+inoremap [[     [
+inoremap []     []
 """"" Tabs
 set tabstop=4
 set shiftwidth=4
