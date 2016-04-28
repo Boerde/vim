@@ -5,21 +5,11 @@ endif
 """"" HOTKEYS
 inoremap jj <ESC>
 
-""""" autocomplete braces
-inoremap {      {}<Left>
-inoremap {<CR>  {<CR>}<Esc>O
-inoremap {{     {
-inoremap {}     {}
+"Buffers
+set hidden
+:nnoremap <C-k> :bnext<CR>
+:nnoremap <C-j> :bprevious<CR>
 
-inoremap (      ()<Left>
-inoremap (<CR>  (<CR>)<Esc>O
-inoremap ((     (
-inoremap ()     ()
-
-inoremap [      []<Left>
-inoremap [<CR>  [<CR>]<Esc>O
-inoremap [[     [
-inoremap []     []
 """"" Tabs
 set tabstop=4
 set shiftwidth=4
@@ -34,6 +24,9 @@ set foldmethod=indent
 nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 set foldlevelstart=99 "no folds at opem
+
+"""" PYTHON
+autocmd BufWritePost *.py call Flake8()
 
 " Syntasthic Default Settings 
 " set statusline+=%#warningmsg#
