@@ -18,6 +18,15 @@ set expandtab
 set list
 set listchars=tab:>~,nbsp:_,trail:.
 
+set number
+
+""""" UNDO
+set history=200                                 " remember x changes
+set undofile                                    " save changes in undo files
+set undolevels=1024                             " remember x changes
+set undoreload=65538                            " reload up to x changes from files
+set undodir=~/.vim/undo/                        " undo directory
+
 """"" FOLDING
 set foldmethod=indent
 "folding with space
@@ -35,14 +44,16 @@ set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_auto_loc_list = 1
 let g:syntastic_enable_signs = 1
-let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': [] }
+let g:syntastic_mode_map = { 'mode': 'active', 'active_filetypes': [],'passive_filetypes': ['c'] }
 let g:syntastic_loc_list_height = 5
 let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 let g:syntastic_c_no_include_search = 1
 let g:syntastic_c_checkers=['splint']
-let g:syntastic_c_splint_args = "+posixlib -I/home/lsoest/skywanng -I/home/lsoest/skywanng/lib/include -I/home/lsoest/skywanng/lib/skywanStubs/base -I/home/lsoest/skywanng/lib/skywanStubs/operSys -I/home/lsoest/skywanng/lib/skywanStubs/cas -I/home/lsoest/skywanng/lib/skywanStubs/dha -I/home/lsoest/skywanng/lib/tdma -I/home/lsoest/skywanng/lib/iniparser -I/home/lsoest/skywanng/cas/libconfd/include -I/home/lsoest/skywanng/cas/include_generated -I/home/lsoest/skywanng/ip/include -I/home/lsoest/skywanng/sys/include -I/home/lsoest/skywanng/ip/qos/appl -I/home/lsoest/skywanng/ip/qos/interface -I/home/lsoest/skywanng/cas/metacli/nbase-stub/ -I/data/mvista/ADK/cavium-octeon2-64-adk/mips64-mv-linux/usr/include/"
+let g:syntastic_c_config_file = 'splint.cfg'
 
+" ignore errors in shell
+let g:syntastic_sh_shellcheck_args = "-e SC2086"
 
 execute pathogen#infect()
 syntax on
@@ -53,7 +64,7 @@ colorscheme solarized
 set spell spelllang=en_us
 set hlsearch
 
-let g:ctags_statusline=1 
+let g:ctags_statusline=0 
 
 """""" PCTRL
 let g:ctrlp_extensions = ['tag'] "enable search through tags
@@ -132,8 +143,8 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 "autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 "autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 "autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-"autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
-"autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
+autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
 "if !exists('g:neocomplete#sources#omni#input_patterns')
@@ -157,7 +168,7 @@ let g:clang_complete_auto = 0
 let g:clang_auto_select = 0
 let g:clang_default_keymappings = 0
 " use clang library instead of binary (faster)
-let g:clang_use_library = 1
+"let g:clang_use_library = 1
 
 """""""""""CLANG_COMPLETE
 let g:clang_snippets = 1
