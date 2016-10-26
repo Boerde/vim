@@ -3,12 +3,25 @@ if has('win32') || has('win64')
 endif
 
 """"" HOTKEYS
+
+let mapleader = "\<Space>"
+
+" jump to tag
+nnoremap <leader>t <C-]>
+nnoremap <leader>z <C-t>
+
+" exit insert mode
 inoremap jj <ESC>
 
 "Buffers
 set hidden
 :nnoremap <C-k> :bnext<CR>
 :nnoremap <C-j> :bprevious<CR>
+
+"quickfix list
+:nnoremap <leader>j :cp<CR>
+:nnoremap <leader>k :cn<CR>
+
 
 """"" Tabs
 set tabstop=4
