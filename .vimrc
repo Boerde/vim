@@ -2,6 +2,16 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
+"""" Delete whitespaces trailing
+function! TrimWhiteSpace()
+let l = line(".")
+let c = col(".")
+%s/\s\+$//e
+call cursor(l, c)
+endfun
+autocmd BufWritePre * :call TrimWhiteSpace()
+
+
 """"" HOTKEYS
 
 let mapleader = "\<Space>"
@@ -50,7 +60,9 @@ set foldlevelstart=99 "no folds at opem
 """" PYTHON
 autocmd BufWritePost *.py call Flake8()
 
-" Syntasthic Default Settings 
+let g:airline_theme='solarized'
+
+" Syntasthic Default Settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -77,7 +89,7 @@ colorscheme solarized
 set spell spelllang=en_us
 set hlsearch
 
-let g:ctags_statusline=0 
+let g:ctags_statusline=0
 
 """""" PCTRL
 let g:ctrlp_extensions = ['tag'] "enable search through tags
