@@ -66,9 +66,6 @@ nnoremap <silent> <Space> @=(foldlevel('.')?'za':"\<Space>")<CR>
 vnoremap <Space> zf
 set foldlevelstart=99 "no folds at opem
 
-"""" PYTHON
-autocmd BufWritePost *.py call Flake8()
-
 let g:airline_theme='solarized'
 
 " Syntasthic Default Settings
