@@ -15,6 +15,15 @@ autocmd BufWritePre * :call TrimWhiteSpace()
 """"" HOTKEYS
 
 let mapleader = "\<Space>"
+" search in qos
+nnoremap <F2> :AsyncRun ag -G "\.c" --ignore unitTests <cword><CR>:copen<CR>
+nnoremap <F3> :AsyncRun ag -G "\.h" --ignore unitTests <cword><CR>:copen<CR>
+nnoremap <F4> :AsyncRun ag -G "\.c" --ignore unitTests <C-R>*<CR>:copen<CR>
+
+""make
+nnoremap <leader>m :AsyncRun make all<CR>:copen<CR>
+" open make errors from subdirs
+set path+=**
 
 " jump to tag
 nnoremap <leader>t <C-]>
