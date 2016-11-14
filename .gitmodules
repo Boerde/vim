@@ -19,9 +19,6 @@
 [submodule "bundle/vim-addon-linux-coding-style"]
 	path = bundle/vim-addon-linux-coding-style
 	url = https://github.com/Boerde/vim-addon-linux-coding-style
-[submodule "bundle/vim-flake8"]
-	path = bundle/vim-flake8
-	url = https://github.com/nvie/vim-flake8
 [submodule "bundle/file-line"]
 	path = bundle/file-line
 	url = https://github.com/bogado/file-line
