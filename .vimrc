@@ -2,15 +2,18 @@ if has('win32') || has('win64')
   set runtimepath=$HOME/.vim,$VIM/vimfiles,$VIMRUNTIME,$VIM/vimfiles/after,$HOME/.vim/after
 endif
 
-"""" Delete whitespaces trailing
+" Delete whitespaces trailing
 function! TrimWhiteSpace()
-let l = line(".")
-let c = col(".")
-%s/\s\+$//e
-call cursor(l, c)
+    let l = line(".")
+    let c = col(".")
+    %s/\s\+$//e
+    call cursor(l, c)
 endfun
-autocmd BufWritePre * :call TrimWhiteSpace()
 
+"""" AUTOCMD
+autocmd BufWritePre * :call TrimWhiteSpace()
+" create tags for c-files
+autocmd BufRead,BufWritePost *.[c|py] :AsyncRun ctags -R --exclude=*.html
 
 """"" HOTKEYS
 
@@ -23,7 +26,7 @@ nnoremap <F4> :AsyncRun ag -G "\.c" --ignore unitTests <C-R>*<CR>:copen<CR>
 ""make
 nnoremap <leader>m :AsyncRun make all<CR>:copen<CR>
 " open make errors from subdirs
-set path+=**
+set path+=$PWD/**
 
 " jump to tag
 nnoremap <leader>t <C-]>
@@ -171,9 +174,9 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 "inoremap <expr><TAB>  pumvisible() ? "\<Down>" : "\<C-x>\<C-u>"
 
 " Enable omni completion.
-"autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
-"autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
-"autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
+autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
+autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
+autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
 autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
