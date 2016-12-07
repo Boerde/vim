@@ -20,7 +20,8 @@ autocmd BufRead,BufWritePost *.[c|py] :AsyncRun ctags -R --exclude=*.html
 let mapleader = "\<Space>"
 " search in qos
 nnoremap <F2> :AsyncRun ag -G "\.c" --ignore unitTests <cword><CR>:copen<CR>
-nnoremap <F3> :AsyncRun ag -G "\.h" --ignore unitTests <cword><CR>:copen<CR>
+" (?!t) exclude for example html
+nnoremap <F3> :AsyncRun ag -G "\.h(?!t)" --ignore unitTests <cword><CR>:copen<CR>
 nnoremap <F4> :AsyncRun ag -G "\.c" --ignore unitTests <C-R>*<CR>:copen<CR>
 
 ""make
@@ -177,7 +178,7 @@ inoremap <expr><C-e>  neocomplete#cancel_popup()
 autocmd FileType css setlocal omnifunc=csscomplete#CompleteCSS
 autocmd FileType html,markdown setlocal omnifunc=htmlcomplete#CompleteTags
 autocmd FileType javascript setlocal omnifunc=javascriptcomplete#CompleteJS
-autocmd FileType python setlocal omnifunc=pythoncomplete#Complete
+autocmd FileType python setlocal omnifunc=jedi#completions
 autocmd FileType xml setlocal omnifunc=xmlcomplete#CompleteTags
 
 " Enable heavy omni completion.
@@ -198,14 +199,15 @@ let g:neocomplete#force_omni_input_patterns.objc =
 \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)'
 let g:neocomplete#force_omni_input_patterns.objcpp =
 \ '\[\h\w*\s\h\?\|\h\w*\%(\.\|->\)\|\h\w*::\w*'
-let g:clang_complete_auto = 0
-let g:clang_auto_select = 0
-let g:clang_default_keymappings = 0
+let g:neocomplete#force_omni_input_patterns.python = '\%([^. \t]\.\|^\s*@\|^\s*from\s.\+import \|^\s*from \|^\s*import \)\w*'
+"let g:clang_complete_auto = 0
+"let g:clang_auto_select = 0
+"let g:clang_default_keymappings = 0
 " use clang library instead of binary (faster)
 "let g:clang_use_library = 1
 
 """""""""""CLANG_COMPLETE
-let g:clang_snippets = 1
-let g:clang_snippets_engine = 'clang_complete'
-let g:clang_complete_macros = 1
-let g:clang_complete_patterns = 1
+"let g:clang_snippets = 1
+"let g:clang_snippets_engine = 'clang_complete'
+"let g:clang_complete_macros = 1
+"let g:clang_complete_patterns = 1
